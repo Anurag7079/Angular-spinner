@@ -1,0 +1,22 @@
+<div class="container mt-3">
+
+  <button type="button " class="btn btn-primary" (click)="addTodo()">
+
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="line-scale-pulse-out">
+      <div class="spinner-grow text-warning" style="width: 5rem; height: 5rem;" role="status"></div>
+      <p style="font-size: 30px; color: white">Loading...</p>
+    </ngx-spinner>
+    <span>Add Todo</span>
+
+  </button>
+
+  <div class="card mt-2">
+    <div class="card-body" *ngFor="let todo of todos">
+      <h1 [ngClass]="{complete:todo.status === 'done'}">{{todo.title}}</h1>
+      <h3 [ngClass]="{complete:todo.status === 'done'}">{{todo.description}}</h3>
+      <button (click)="markAsComplete(todo.id)" type="button" class="btn btn-light">mark as complete</button>
+      <button type="button" (click)="deleteTodo(todo.id)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
+
